@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import AdPlaceholder from '../components/AdPlaceholder';
 import { Link } from 'react-router-dom';
-import { Trophy, ChevronRight, ArrowUpDown, Medal } from 'lucide-react';
+import { Trophy, ChevronRight, ArrowUpDown, Medal, Star } from 'lucide-react';
 import { leaderboardData, LeaderboardEntry } from '../utils/leaderboardData';
 
 const Leaderboard = () => {

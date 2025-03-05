@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Trophy, Controller, Info, Home } from 'lucide-react';
+import { Menu, X, Trophy, Info, Home, Gamepad2 } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,7 +42,7 @@ const Navbar = () => {
               <NavLink to="/" icon={<Home size={16} />}>Home</NavLink>
             </li>
             <li>
-              <NavLink to="/game" icon={<Controller size={16} />}>Play Now</NavLink>
+              <NavLink to="/game" icon={<Gamepad2 size={16} />}>Play Now</NavLink>
             </li>
             <li>
               <NavLink to="/how-to-play" icon={<Info size={16} />}>How to Play</NavLink>
@@ -75,7 +75,7 @@ const Navbar = () => {
                 <NavLink to="/" icon={<Home size={16} />}>Home</NavLink>
               </li>
               <li>
-                <NavLink to="/game" icon={<Controller size={16} />}>Play Now</NavLink>
+                <NavLink to="/game" icon={<Gamepad2 size={16} />}>Play Now</NavLink>
               </li>
               <li>
                 <NavLink to="/how-to-play" icon={<Info size={16} />}>How to Play</NavLink>

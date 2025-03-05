@@ -1,9 +1,8 @@
-
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import AdPlaceholder from '../components/AdPlaceholder';
 import { Link } from 'react-router-dom';
-import { Mail, ChevronRight, Info, Shield } from 'lucide-react';
+import { Mail, ChevronRight, Info, Shield, Trophy } from 'lucide-react';
 
 const About = () => {
   return (
