@@ -8,16 +8,23 @@ interface GameIframeProps {
 const GameIframe: React.FC<GameIframeProps> = ({ className = '' }) => {
   const [isLoading, setIsLoading] = useState(true);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const gameUrl = "https://retrobowl.click/game/retro-bowl/";
   
   const handleIframeLoad = () => {
     setIsLoading(false);
     
     // Check if we're directed to this iframe via a hash fragment
-    if (window.location.hash === '#game-container' && iframeRef.current) {
+    if (window.location.hash === '#game-container' && containerRef.current) {
       // Add a small delay to ensure everything is rendered
       setTimeout(() => {
-        iframeRef.current?.scrollIntoView({ behavior: 'smooth' });
+        // Scroll the game container to the center of the viewport
+        containerRef.current?.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'center' // This centers the element in the viewport
+        });
+        
+        // Focus the iframe for immediate gameplay
         iframeRef.current?.focus();
       }, 100);
     }
@@ -25,16 +32,35 @@ const GameIframe: React.FC<GameIframeProps> = ({ className = '' }) => {
 
   useEffect(() => {
     // Check for hash on initial load and scroll to game if needed
-    if (window.location.hash === '#game-container' && iframeRef.current) {
+    if (window.location.hash === '#game-container' && containerRef.current) {
       setTimeout(() => {
-        iframeRef.current?.scrollIntoView({ behavior: 'smooth' });
+        containerRef.current?.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'center' // This centers the element in the viewport
+        });
         iframeRef.current?.focus();
       }, 100);
     }
+    
+    // Also listen for hash changes (when navigating with history)
+    const handleHashChange = () => {
+      if (window.location.hash === '#game-container' && containerRef.current) {
+        setTimeout(() => {
+          containerRef.current?.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'center'
+          });
+          iframeRef.current?.focus();
+        }, 100);
+      }
+    };
+    
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
   return (
-    <div className={`${className} relative rounded-lg overflow-hidden border border-border`}>
+    <div ref={containerRef} id="game-container" className={`${className} relative rounded-lg overflow-hidden border border-border`}>
       {isLoading && (
         <div className="absolute inset-0 bg-muted flex flex-col items-center justify-center z-10">
           <div className="flex items-center gap-2 mb-4">

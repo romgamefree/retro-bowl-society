@@ -1,3 +1,4 @@
+
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import GameIframe from '../components/GameIframe';
@@ -25,9 +26,8 @@ const Game = () => {
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
               {/* Game area - 3/4 width on desktop */}
               <div className="lg:col-span-3">
-                <div id="game-container">
-                  <GameIframe className="mb-6" />
-                </div>
+                {/* Game iframe - now handles its own container */}
+                <GameIframe className="mb-6" />
                 
                 <div className="bg-muted rounded-lg p-4 mb-6">
                   <h2 className="font-pixel text-sm mb-2">Game Controls</h2>
