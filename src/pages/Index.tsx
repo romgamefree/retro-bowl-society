@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Trophy, Users, Star } from 'lucide-react';
@@ -10,7 +9,6 @@ const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   
   useEffect(() => {
-    // Simple animation on load
     setIsLoaded(true);
   }, []);
   
@@ -38,7 +36,7 @@ const Index = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/game" className="retro-btn animate-pixel-bounce">
+                <Link to="/game#game-container" className="retro-btn animate-pixel-bounce">
                   Play Now <ChevronRight size={16} className="inline ml-1" />
                 </Link>
                 <Link to="/how-to-play" className="retro-btn retro-btn-secondary">
@@ -199,7 +197,7 @@ const Index = () => {
             </div>
             
             <div className="mt-10 text-center">
-              <Link to="/game" className="retro-btn">
+              <Link to="/game#game-container" className="retro-btn">
                 Start Playing Now <ChevronRight size={16} className="inline ml-1" />
               </Link>
             </div>

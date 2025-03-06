@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -47,13 +46,11 @@ const Leaderboard = () => {
               <Trophy size={32} className="text-secondary" />
             </div>
             
-            {/* Ad banner */}
             <div className="mb-8 flex justify-center">
               <AdPlaceholder size="leaderboard" className="max-w-full" />
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              {/* Main content */}
               <div className="md:col-span-3">
                 <div className="bg-background border border-border rounded-lg overflow-hidden mb-8">
                   <div className="overflow-x-auto">
@@ -104,21 +101,18 @@ const Leaderboard = () => {
                   </p>
                 </div>
                 
-                {/* In-content ad */}
                 <div className="flex justify-center mb-8">
                   <AdPlaceholder size="large-rectangle" />
                 </div>
                 
                 <div className="text-center">
-                  <Link to="/game" className="retro-btn">
+                  <Link to="/game#game-container" className="retro-btn">
                     Play Now & Climb the Ranks <ChevronRight size={16} className="inline ml-1" />
                   </Link>
                 </div>
               </div>
               
-              {/* Sidebar */}
               <div className="md:col-span-1 space-y-6">
-                {/* Sidebar ad */}
                 <AdPlaceholder size="medium-rectangle" />
                 
                 <div className="bg-background border border-border rounded-lg p-4">
