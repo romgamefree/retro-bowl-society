@@ -1,3 +1,4 @@
+
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import AdPlaceholder from '../components/AdPlaceholder';
@@ -197,7 +198,7 @@ const HowToPlay = () => {
                 </section>
                 
                 <div className="mt-8 flex justify-center">
-                  <Link to="/game" className="retro-btn">
+                  <Link to="/game#game-container" className="retro-btn">
                     Play Now <ChevronRight size={16} className="inline ml-1" />
                   </Link>
                 </div>
