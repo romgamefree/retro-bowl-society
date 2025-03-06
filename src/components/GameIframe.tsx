@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface GameIframeProps {
   className?: string;
@@ -7,11 +7,31 @@ interface GameIframeProps {
 
 const GameIframe: React.FC<GameIframeProps> = ({ className = '' }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
   const gameUrl = "https://retrobowl.click/game/retro-bowl/";
   
   const handleIframeLoad = () => {
     setIsLoading(false);
+    
+    // Check if we're directed to this iframe via a hash fragment
+    if (window.location.hash === '#game-container' && iframeRef.current) {
+      // Add a small delay to ensure everything is rendered
+      setTimeout(() => {
+        iframeRef.current?.scrollIntoView({ behavior: 'smooth' });
+        iframeRef.current?.focus();
+      }, 100);
+    }
   };
+
+  useEffect(() => {
+    // Check for hash on initial load and scroll to game if needed
+    if (window.location.hash === '#game-container' && iframeRef.current) {
+      setTimeout(() => {
+        iframeRef.current?.scrollIntoView({ behavior: 'smooth' });
+        iframeRef.current?.focus();
+      }, 100);
+    }
+  }, []);
 
   return (
     <div className={`${className} relative rounded-lg overflow-hidden border border-border`}>
@@ -27,11 +47,13 @@ const GameIframe: React.FC<GameIframeProps> = ({ className = '' }) => {
       )}
       
       <iframe 
+        ref={iframeRef}
         src={gameUrl}
         className="w-full aspect-video border-0"
         onLoad={handleIframeLoad}
         title="Retro Bowl Game"
         allow="fullscreen"
+        tabIndex={0}
       ></iframe>
     </div>
   );

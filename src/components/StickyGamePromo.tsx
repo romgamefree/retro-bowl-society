@@ -22,7 +22,7 @@ const StickyGamePromo = () => {
         </div>
         
         <div className="flex items-center gap-3">
-          <Link to="/game" className="bg-white text-primary font-medium text-sm px-4 py-1.5 rounded hover:bg-white/90 transition-colors">
+          <Link to="/game#game-container" className="bg-white text-primary font-medium text-sm px-4 py-1.5 rounded hover:bg-white/90 transition-colors">
             Play Now
           </Link>
           <button 
