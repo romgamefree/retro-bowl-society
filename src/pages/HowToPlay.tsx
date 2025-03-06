@@ -1,9 +1,9 @@
-
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import AdPlaceholder from '../components/AdPlaceholder';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Star } from 'lucide-react';
+import StickyGamePromo from '../components/StickyGamePromo';
 
 const HowToPlay = () => {
   return (

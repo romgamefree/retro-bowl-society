@@ -1,8 +1,8 @@
-
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import GameEmbed from '../components/GameEmbed';
+import GameIframe from '../components/GameIframe';
 import AdPlaceholder from '../components/AdPlaceholder';
+import StickyGamePromo from '../components/StickyGamePromo';
 import { Link } from 'react-router-dom';
 import { Trophy, Share2 } from 'lucide-react';
 
@@ -10,6 +10,7 @@ const Game = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
+      <StickyGamePromo />
       
       <main className="flex-1 pt-24 page-transition">
         <div className="container mx-auto px-4 py-8">
@@ -24,7 +25,7 @@ const Game = () => {
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
               {/* Game area - 3/4 width on desktop */}
               <div className="lg:col-span-3">
-                <GameEmbed className="mb-6" />
+                <GameIframe className="mb-6" />
                 
                 <div className="bg-muted rounded-lg p-4 mb-6">
                   <h2 className="font-pixel text-sm mb-2">Game Controls</h2>
